@@ -10,6 +10,7 @@
 (add-to-list 'load-path "~/.emacs.d/vendor")
 (require 'guru-mode)
 
+;; melpa
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -17,3 +18,8 @@
   ;; For important compativility Libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
+
+;; orgmode -- http://orgmode.org/elpa.html
+(require 'package)
+(add-to-list 'package-archives
+             '("org" . "http://orgmode.org/elpa/") t)
