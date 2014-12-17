@@ -1,6 +1,10 @@
 ;; -*-Emacs-Lisp-*-
 ;; .emacs.d/init.el
 
+;; from http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/
+(require 'package)
+(package-initialize)
+
 ;; change TAB to 4 spaces
 ;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Mode_002dSpecific-Indent.html#Mode_002dSpecific-Indent
 (setq-default indent-tabs-mode nil)
@@ -11,7 +15,6 @@
 (require 'guru-mode)
 
 ;; melpa
-(require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (when (< emacs-major-version 24)
@@ -20,7 +23,6 @@
 (package-initialize)
 
 ;; orgmode -- http://orgmode.org/elpa.html
-(require 'package)
 (add-to-list 'package-archives
              '("org" . "http://orgmode.org/elpa/") t)
 
