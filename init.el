@@ -17,6 +17,9 @@
 ;; melpa
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
 (when (< emacs-major-version 24)
   ;; For important compativility Libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
@@ -32,3 +35,14 @@
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
+
+;; Fast access to TODO stats
+;; http://orgmode.org/manual/Fast-access-to-TODO-states.html#Fast-access-to-TODO-states
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "|" "DONE(d)")))
+
+(setq org-log-done 'time)
+(setq org-log-done 'note)
+
+(setq org-default-notes-file (expand-file-name "~/note.org"))
+(define-key global-map "\C-cc" 'org-capture)
