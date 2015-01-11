@@ -25,7 +25,7 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
-;; orgmode -- http://orgmode.org/elpa.html
+;; org-mode -- http://orgmode.org/elpa.html
 (add-to-list 'package-archives
              '("org" . "http://orgmode.org/elpa/") t)
 
@@ -44,5 +44,29 @@
 (setq org-log-done 'time)
 (setq org-log-done 'note)
 
-(setq org-default-notes-file (expand-file-name "~/note.org"))
+(setq org-default-notes-file (expand-file-name "~/org/note.org"))
 (define-key global-map "\C-cc" 'org-capture)
+
+;; For org capture template
+(setq org-capture-templates
+      '(("t" "TODO" entry (file+headline "~/org/gtd.org" "Tasks")
+         "* TODO %?\n %i\n %a\n %u")
+        ("n" "note" entry (file "~/org/note.org")
+         "* %? :NOTE:\n%U\n%a\n" :clock-in: t :clock-resume t)
+        ("r" "read" read (file "~/org/read.org")
+         "* %? :READ:\n%U\n%a\n" :clock-in: t :clock-resume t)
+        ("j" "Journal" entry (file+datetree "~/org/journal.org")
+         "* %?\nEntered on %U\n %i\n %a")))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files (quote ("~/lab/clj_prog/clojure_programming.org"
+                            "~/org"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
