@@ -57,13 +57,17 @@
          "* %? :READ:\n%U\n%a\n" :clock-in: t :clock-resume t)
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
          "* %?\nEntered on %U\n %i\n %a")))
-(custom-set-variables
+;;(custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/lab/clj_prog/clojure_programming.org"
-                            "~/org"))))
+;; '(org-agenda-files (quote ("~/lab/bitbucket/word_bucket/progress.org"
+;;                            "~/lab/clj_prog/clojure_programming.org"
+;;                            "~/org"))))
+(setq org-agenda-files (list "~/lab/bitbucket/word_bucket/progress.org"
+                             "~/lab/clj_prog/clojure_programming.org"
+                             "~/org"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
