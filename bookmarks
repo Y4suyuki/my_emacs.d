@@ -4,7 +4,7 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
  (filename . "~/org/gtd.org")
- (front-context-string . "** TODO Learn Re")
- (rear-context-string . "[link to blog]]\n")
- (position . 4287))
+ (front-context-string . "** TODO setup Re")
+ (rear-context-string . "2015-09-30 Wed]\n")
+ (position . 10476))
 )
