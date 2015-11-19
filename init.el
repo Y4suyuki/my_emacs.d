@@ -1,4 +1,4 @@
-;; -*-Emacs-Lisp-*-
+;; -*-Emacs-
 ;; .emacs.d/init.el
 
 ;; from http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/
@@ -74,3 +74,60 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/my-custom-theme-theme.el")
+(load-theme 'my-custom-theme t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("a240eea56be4be98f79db914603c44bbd33f46e0d4d1d14187f0206bfa4bfea3" "c8b3b9880a637c6585d78b586e23ad88f1c6a39a917038c1e2490a8c3c7f1d63" "b6ae47868dfb79ee2a1d3eee740aea0178d7fb1c6a8bb8eca9bba6292a07abbf" "168cd7977a4df0906c40b659267e1ef13cd2d8a125558d17f0151d4f8a8fce72" "33f420603a81175875e11f8d9c18eda4ce19d45462f7ff9fa4581c926ed88944" "42c235cdaccf1fd9bb40ddc087632efa3d90ae30ec27aa8490bde8e6ddde23ba" "1004c7f179d22a08aba6f8d3100b4762e4e9a51e69aa8fcf95139abe642c24db" "e2686ce582e23b34e3c275003a068e184937d1c957b39b41363ac73b5185433f" default))))
+
+
+
+;; reference https://truongtx.me/2014/03/10/emacs-setup-jsx-mode-and-jsx-syntax-checking/#
+(add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode))
+(defadvice web-mode-highlight-part (around tweak-jsx activate)
+  (if (equal web-mode-content-type "jsx")
+      (let ((web-mode-enable-part-face nil))
+        ad-do-it)
+    ad-do-it))
+
+(defun my-web-mode-hook ()
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (set-face-attribute 'web-mode-html-tag-face nil :foreground "color-32")
+  (set-face-attribute 'web-mode-html-tag-bracket-face nil :foreground "color-25")
+  (set-face-attribute 'web-mode-html-attr-name-face nil :foreground "color-58")
+  (set-face-attribute 'web-mode-html-attr-value-face nil :foreground "color-35")
+  (set-face-attribute 'web-mode-html-attr-equal-face nil :foreground "brightwhite"))
+(add-hook 'web-mode-hook 'my-web-mode-hook)
+
+;; (require 'jsx-mode)
+;; (add-to-list 'auto-mode-alist '("\\.js$" . jsx-mode))
+
+;; http://stackoverflow.com/questions/1242352/get-font-face-under-cursor-in-emacs
+(defun what-face (pos)
+  (interactive "d")
+  (let ((face (or (get-char-property (point) 'read-face-name)
+                  (get-char-property (point) 'face))))
+    (if face (message "Face: %s" face) (message "No face at %d" pos))))
+
+;; https://truongtx.me/2014/03/10/emacs-setup-jsx-mode-and-jsx-syntax-checking/
+;; (require 'flycheck)
+;; (flycheck-define-checker jsxhint-checker
+;;                          "A JSX syntax and style checker based on JSXHint."
+;; 
+;;                          :command ("jsxhint" source)
+;;                          :error-patterns
+;;                          ((error line-start (1+ nonl) ": line " line ", col " column ", " (message) line-end))
+;;                          :modes (web-mode))
+;; (add-hook 'web-mode-hook
+;;           (lambda ()
+;;             (when (equal web-mode-content-type "jsx")
+;;               ;; enable flycheck
+;;               (flycheck-select-checker 'jsxhint-checker)
+;;               (flycheck-mode))))
