@@ -1,5 +1,5 @@
 (deftheme my-custom-theme
-  "Created 2015-10-29.")
+  "Created 2015-11-24.")
 
 (custom-theme-set-faces
  'my-custom-theme
@@ -20,7 +20,7 @@
  '(font-lock-constant-face ((t (:foreground "color-29"))))
  '(font-lock-doc-face ((t (:inherit (font-lock-string-face)))))
  '(font-lock-function-name-face ((t (:foreground "color-38"))))
- '(font-lock-keyword-face ((t (:foreground "color-34"))))
+ '(font-lock-keyword-face ((t (:foreground "color-49"))))
  '(font-lock-negation-char-face ((t nil)))
  '(font-lock-preprocessor-face ((t (:inherit (font-lock-builtin-face)))))
  '(font-lock-regexp-grouping-backslash ((t (:inherit (bold)))))
