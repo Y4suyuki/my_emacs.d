@@ -34,7 +34,7 @@
 	    (make-local-variable 'js-indent-level)
 	    (setq js-indent-level 2)))
 
-(setq x-select-enable-clipboard t)
+(setq select-enable-clipboard t)
 
 ;; the following lines are always needed. Choose your own keys.
 ;; (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode)) ; not needed since Emacs 22.2
@@ -81,16 +81,25 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
- '(custom-enabled-themes (quote (ubuntu16\.0\.4-dark)))
+ '(custom-enabled-themes (quote (dracula)))
  '(custom-safe-themes
    (quote
-    ("c3f5e75f0a1e35354efc0f70facd93091712bda40f49a4a0e93f02f7fff8ec70" "ad615811a543eee88559d210b25cee657b9c092f52fbf3665b5cfbf780e451b2" default))))
+    ("aaffceb9b0f539b6ad6becb8e96a04f2140c8faa1de8039a343a4f1e009174fb" "c3f5e75f0a1e35354efc0f70facd93091712bda40f49a4a0e93f02f7fff8ec70" "ad615811a543eee88559d210b25cee657b9c092f52fbf3665b5cfbf780e451b2" default)))
+ '(package-selected-packages
+   (quote
+    (dracula-theme web-mode use-package terraform-mode scala-mode org-bullets org markdown-mode json-mode jinja2-mode hive go-mode flycheck fish-mode dockerfile-mode docker-compose-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(defun on-after-init()
+  (unless (display-graphic-p (selected-frame))
+    (set-face-background 'default "unspecific-bg" (selected-frame))))
+
+(add-hook 'window-setup-hook 'on-after-init)
 
 (provide 'init)
 
