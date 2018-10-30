@@ -87,13 +87,15 @@
     ("aaffceb9b0f539b6ad6becb8e96a04f2140c8faa1de8039a343a4f1e009174fb" "c3f5e75f0a1e35354efc0f70facd93091712bda40f49a4a0e93f02f7fff8ec70" "ad615811a543eee88559d210b25cee657b9c092f52fbf3665b5cfbf780e451b2" default)))
  '(package-selected-packages
    (quote
-    (dracula-theme web-mode use-package terraform-mode scala-mode org-bullets org markdown-mode json-mode jinja2-mode hive go-mode flycheck fish-mode dockerfile-mode docker-compose-mode))))
+    (powerline dracula-theme web-mode use-package terraform-mode scala-mode org-bullets org markdown-mode json-mode jinja2-mode hive go-mode flycheck fish-mode dockerfile-mode docker-compose-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(powerline-default-theme)
 
 (defun on-after-init()
   (unless (display-graphic-p (selected-frame))
