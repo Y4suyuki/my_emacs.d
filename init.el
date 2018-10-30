@@ -27,8 +27,6 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
-(load-theme 'ubuntu16.0.4-dark t)
-
 (add-hook 'json-mode-hook
 	  (lambda ()
 	    (make-local-variable 'js-indent-level)
